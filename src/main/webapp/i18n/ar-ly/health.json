@@ -18,6 +18,7 @@
       "diskSpace": "مساحة القرص",
       "mail": "البريد الإلكتروني",
       "ping": "Application",
+      "elasticsearch": "Elasticsearch",
       "db": "قاعدة البيانات"
     },
     "table": {

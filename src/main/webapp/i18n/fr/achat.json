@@ -1,0 +1,27 @@
+{
+  "jhipsterApp": {
+    "achat": {
+      "home": {
+        "title": "Achats",
+        "createLabel": "Créer un nouveau Achat",
+        "createOrEditLabel": "Créer ou éditer un Achat",
+        "search": "Recherche pour Achat",
+        "notFound": "Aucun Achat trouvé"
+      },
+      "created": "Un nouveau Achat a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Achat avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Achat avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Achat {{ id }} ?"
+      },
+      "detail": {
+        "title": "Achat"
+      },
+      "quanttiy": "Quanttiy",
+      "price": "Price",
+      "dateachat": "Dateachat",
+      "time": "Time",
+      "product": "Product"
+    }
+  }
+}

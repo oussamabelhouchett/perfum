@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <h5 class="modal-title">Nouveau categorie</h5>
+    <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close">
+        <fa-icon icon="window-close"></fa-icon>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="form-group">
+        <label class="form-control-label" jhiTranslate="jhipsterApp.product.name" >Name</label>
+        <input type="text" class="form-control" [(ngModel)]="categorie.name" />
+    </div>
+
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary"  (click)="closeModal()">Close</button>
+    <button type="button" class="btn btn-primary" (click)="save()" [disabled]="isSaving">Save</button>
+</div>
+
+

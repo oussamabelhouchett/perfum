@@ -9,12 +9,7 @@ import { StateStorageService } from './state-storage.service';
 
 @Injectable({ providedIn: 'root' })
 export class UserRouteAccessService implements CanActivate {
-  constructor(
-    private router: Router,
-    private loginModalService: LoginModalService,
-    private accountService: AccountService,
-    private stateStorageService: StateStorageService
-  ) {}
+  constructor(private router: Router, private accountService: AccountService, private stateStorageService: StateStorageService) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     const authorities = route.data['authorities'];
@@ -45,7 +40,6 @@ export class UserRouteAccessService implements CanActivate {
 
         this.stateStorageService.storeUrl(url);
         this.router.navigate(['']);
-        this.loginModalService.open();
         return false;
       })
     );

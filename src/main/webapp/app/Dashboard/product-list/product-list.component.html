@@ -1,0 +1,59 @@
+<div class="card">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Product list
+        <button class="btn btn-primary p-1" *ngIf="categorieId" (click)="openNewProduct()">
+            <fa-icon icon="plus"></fa-icon>
+        </button>
+        </h5>
+        <div class=" float-lg-right">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'jhipsterApp.product.home.search' | translate }}">
+
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon icon="search"></fa-icon>
+                    </button>
+
+                    <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+                        <fa-icon icon="trash-alt"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+    <div class="modal-body"  >
+
+        <div infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']">
+<ng-container  *ngFor="let product of products ;trackBy: trackId">
+    <div class="card m-2"  *ngIf="product.name" >
+        <div class="card-body"  >
+            <div class="row">
+                <div class="col-md-6">
+                    <span class="product-label">nom product : </span>
+                    <span class="product-data">{{product.name}}</span>
+                </div>
+                <div class="col-md-3">
+                            <span class="product-label">
+                                prix:</span>
+                    <span class="product-data"> {{product.price}} &nbsp;Dt</span>
+                </div>
+                <div class="col-md-3">
+                    <span class="product-label"> Quantity:</span>
+                    <span class="product-data"> {{product.quantity}}</span></div>
+            </div>
+            <hr>
+            <button class="btn-success float-lg-right" (click)="openNewVente(product)" *ngIf="product.quantity">vente</button>
+        </div>
+    </div>
+</ng-container>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+

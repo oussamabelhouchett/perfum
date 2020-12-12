@@ -10,12 +10,7 @@ import { StateStorageService } from 'app/core/auth/state-storage.service';
 
 @Injectable()
 export class AuthExpiredInterceptor implements HttpInterceptor {
-  constructor(
-    private loginService: LoginService,
-    private loginModalService: LoginModalService,
-    private stateStorageService: StateStorageService,
-    private router: Router
-  ) {}
+  constructor(private loginService: LoginService, private stateStorageService: StateStorageService, private router: Router) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
@@ -24,7 +19,6 @@ export class AuthExpiredInterceptor implements HttpInterceptor {
           this.stateStorageService.storeUrl(this.router.routerState.snapshot.url);
           this.loginService.logout();
           this.router.navigate(['']);
-          this.loginModalService.open();
         }
       })
     );

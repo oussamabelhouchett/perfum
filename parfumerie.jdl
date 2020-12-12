@@ -1,0 +1,54 @@
+
+ entity Categorie{
+ name String,
+ imagePath String
+ }
+ entity Product{
+ name String,
+ code String,
+ quantity Integer,
+ price Integer
+ }
+entity Achat {
+	quanttiy String,
+	price String,
+	dateachat LocalDate,
+	time Instant,
+    
+	
+}
+entity Vente{
+quantite Integer,
+price Integer ,
+datevente LocalDate,
+time Instant,
+}
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Product to Vente{Product},
+	Product to Achat{Product},
+  
+}
+
+relationship ManyToOne {
+	Product{ categorie} to Categorie,
+   
+    
+}
+
+// defining multiple oneToOne relationships
+
+
+// Set pagination options
+paginate Product, Vente, Achat with infinite-scroll
+
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+filter *
+
+// Set an angular suffix
+

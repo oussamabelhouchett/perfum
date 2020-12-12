@@ -25,6 +25,19 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
           path: 'account',
           loadChildren: () => import('./account/account.module').then(m => m.AccountModule),
         },
+        {
+          path: 'dashboard',
+          loadChildren: () => import('./Dashboard/dashboard.module').then(m => m.DashboardModule),
+        },
+        {
+          path: 'hostorique-achat',
+          loadChildren: () => import('./hostorique-achat/hostorique-achat.module').then(m => m.HostoriqueAchatModule),
+        },
+        {
+          path: 'hostorique-vente',
+          loadChildren: () => import('./hostorique-vente/hostorique-vente.module').then(m => m.HostoriqueVenteModule),
+        },
+
         ...LAYOUT_ROUTES,
       ],
       { enableTracing: DEBUG_INFO_ENABLED }

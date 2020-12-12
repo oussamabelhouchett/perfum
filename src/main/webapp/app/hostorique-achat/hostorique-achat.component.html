@@ -1,0 +1,45 @@
+<div class="row justify-center">
+    <div class="col-md-4"></div>
+    <div class="col-md-5">
+        <h2 class="text-center">Hostorique Achat</h2>
+<hr>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" jhiTranslate="audits.filter.from">from</span>
+            </div>
+            <input type="date" class="form-control" name="start" [(ngModel)]="fromDate" (ngModelChange)="loadAll()" required/>
+
+            <div class="input-group-append">
+                <span class="input-group-text" jhiTranslate="audits.filter.to">To</span>
+            </div>
+            <input type="date" class="form-control" name="end" [(ngModel)]="toDate" (ngModelChange)="loadAll()" required/>
+        </div>
+    </div>
+</div>
+<div class="alert alert-warning text-center" role="alert" *ngIf="!achats.length">
+ Aucun Achat pour ces date
+</div>
+<div infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']">
+
+    <div class="card m-2"   *ngFor="let achat of achats ;trackBy: trackId">
+        <div class="card-body"  >
+            <span class=" float-lg-right">{{achat.dateachat | date:'yyyy-MM-dd'}}</span>
+            <div class="row">
+                <div class="col-md-6">
+                    <span class="product-label">nom product : </span>
+                    <span class="product-data">{{achat.productName}}</span>
+                </div>
+                <div class="col-md-3">
+                            <span class="product-label">
+                                prix:</span>
+                    <span class="product-data"> {{achat.price}} &nbsp;Dt</span>
+                </div>
+                <div class="col-md-3">
+                    <span class="product-label"> Quantity:</span>
+                    <span class="product-data"> {{achat.quanttiy}}</span></div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

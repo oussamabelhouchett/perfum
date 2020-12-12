@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class=" col-md-3 p-2">
+            <ul  class="list-group">
+                <li class="list-group-item  text-center" aria-current="true">
+                    <h5>Categories
+                        <button class="btn btn-primary p-sm-1"  (click)="openNewCategorie()">
+                            <fa-icon icon="plus"></fa-icon>
+                        </button>
+                    </h5></li>
+                <li class="list-group-item  btn btn-block btn-outline-primary" *ngFor="let categorie of categories|async  ;trackBy: trackId"  [routerLink]="['/dashboard', categorie.id, 'product']" >
+                {{categorie.name}}
+                </li>
+            </ul>
+
+        </div>
+        <div class=" col-md-9">
+            <router-outlet></router-outlet>
+        </div>
+</div>
+</div>
